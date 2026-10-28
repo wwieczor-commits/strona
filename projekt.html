@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>System Analityczny Biomechaniki Sportowców (SABAS) – BikeRc</title>
+<meta name="description" content="Informacje o projekcie SABAS realizowanym przez BikeRC P.S.A. w ramach programu Fundusze Europejskie dla Nowoczesnej Gospodarki 2021–2027, Działanie 2.28 Startup Booster Poland.">
+<meta name="theme-color" content="#232222">
+<link rel="icon" type="image/svg+xml" href="assets/logo-bikerc.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;0,800;1,800;1,900&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;background:#232222}
+a{color:#2EC4B6}a:hover{color:#6FDCD1}
+a:focus-visible{outline:2px solid #6FDCD1;outline-offset:3px}
+@keyframes brc-rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.brc-rise{animation:brc-rise .8s cubic-bezier(.2,.7,.2,1) both}
+.brc-rise2{animation:brc-rise .8s .12s cubic-bezier(.2,.7,.2,1) both}
+.brc-btn{position:relative;overflow:hidden;isolation:isolate;transition:transform .25s cubic-bezier(.2,.7,.2,1),color .3s ease}
+.brc-btn::before{content:"";position:absolute;top:0;bottom:0;left:-15%;width:130%;background:#F2F4F3;transform:translateX(-105%) skewX(-12deg);transition:transform .5s cubic-bezier(.2,.7,.2,1);z-index:-1}
+.brc-btn:hover{transform:translateY(-3px)}
+.brc-btn:hover::before,.brc-btn:focus-visible::before{transform:translateX(0) skewX(-12deg)}
+.brc-nav{position:relative;padding:6px 0}
+.brc-nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#2EC4B6;transform:scaleX(0) skewX(-12deg);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.brc-nav:hover::after,.brc-nav:focus-visible::after,.brc-nav.is-current::after{transform:scaleX(1) skewX(-12deg)}
+.brc-item{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.brc-item:hover{transform:translateX(6px)}
+@media (prefers-reduced-motion: reduce){.brc-rise,.brc-rise2{animation:none}.brc-btn,.brc-btn::before,.brc-item,.brc-nav::after{transition:none}}
+
+html{scroll-behavior:smooth}</style>
+</head>
+<body>
+<div style="background: #232222; color: #F2F4F3; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 24px; overflow: hidden;">
+
+<header style="max-width: 1320px; margin: 0 auto; padding: 24px clamp(16px, 4vw, 64px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+<a href="index.html" style="display: block; line-height: 0;"><img src="assets/logo-bikerc.svg" alt="BikeRc – strona główna" style="height: 36px; width: auto; display: block;"></a>
+<nav aria-label="Główna" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 32px; font-size: 15px; font-weight: 500;">
+<a class="brc-nav" href="index.html#jak" style="color: #F2F4F3; text-decoration: none;">Jak to działa</a>
+<a class="brc-nav" href="index.html#zastosowanie" style="color: #F2F4F3; text-decoration: none;">Zastosowanie</a>
+<a class="brc-nav is-current" href="projekt.html" aria-current="page" style="color: #F2F4F3; text-decoration: none;">O projekcie</a>
+<a class="brc-btn" href="index.html#kontakt" style="display: inline-block; background: #2EC4B6; color: #1F1E1E; text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 6px;">Kontakt</a>
+</nav>
+</header>
+
+<div style="background: #FFFFFF;">
+<div style="max-width: 1320px; margin: 0 auto; padding: 14px clamp(16px, 4vw, 64px); box-sizing: border-box;">
+<img src="https://bikerc.cloud/wp-content/uploads/2025/07/UE.jpg" alt="Fundusze Europejskie dla Nowoczesnej Gospodarki, Rzeczpospolita Polska, Dofinansowane przez Unię Europejską" style="display: block; width: 100%; max-width: 980px; height: auto; margin: 0 auto;">
+</div>
+</div>
+
+<section style="max-width: 1320px; margin: 0 auto; padding: 80px clamp(16px, 4vw, 64px) 64px; display: flex; flex-wrap: wrap; gap: 48px 80px; align-items: flex-end;">
+<div style="flex: 1.4 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 24px;">
+<p class="brc-rise" style="margin: 0; font-size: 14px; line-height: 20px; color: #A9AFAE;">Informacje o realizowanym projekcie</p>
+<h1 class="brc-rise" style="margin: 0; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-weight: 900; font-size: clamp(40px, 5.6vw, 84px); line-height: 0.96; letter-spacing: -0.015em;">System Analityczny Biomechaniki Sportowców (SABAS)</h1>
+<p class="brc-rise2" style="margin: 0; max-width: 40em; font-size: 18px; line-height: 29px; color: #D5DCDA;">BikeRC Prosta Spółka Akcyjna realizuje projekt pod tytułem „System Analityczny Biomechaniki Sportowców (SABAS)” o numerze umowy o dofinansowanie 16/I/FENG/PCI/2025 w ramach Programu Fundusze Europejskie dla Nowoczesnej Gospodarki 2021–2027, Priorytet II Środowisko sprzyjające innowacjom, Działanie 2.28 Startup Booster Poland.</p>
+</div>
+<div class="brc-rise2" style="flex: 1 1 340px; min-width: 0; background: #2EC4B6; color: #1F1E1E; clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%); padding: 36px 56px; display: flex; flex-direction: column; gap: 4px;">
+<p style="margin: 0; font-size: 14px; line-height: 20px; font-weight: 600;">Dofinansowanie projektu z UE</p>
+<p style="margin: 0 0 18px; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-weight: 900; font-size: clamp(34px, 3.6vw, 48px); line-height: 1.05;">199 620,80 zł</p>
+<p style="margin: 0; font-size: 15px; line-height: 24px; display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(31,30,30,.3); padding-top: 10px;"><span>Ogólna wartość projektu</span><b>222 988,80 zł</b></p>
+<p style="margin: 0; font-size: 15px; line-height: 24px; display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(31,30,30,.3); padding-top: 10px; margin-top: 6px;"><span>Wydatki kwalifikowalne</span><b>199 620,80 zł</b></p>
+</div>
+</section>
+
+<section style="background: #2B2A2A;">
+<div style="max-width: 1320px; margin: 0 auto; padding: 96px clamp(16px, 4vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: 72px 80px;">
+
+<div style="display: flex; flex-direction: column; gap: 20px;">
+<h2 style="margin: 0; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-weight: 800; font-size: clamp(30px, 3vw, 42px); line-height: 1.05;">Zadania i działania</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #4A4848;">
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #2EC4B6; transform: skewX(-12deg);"></span>Opracowanie, przetestowanie i wdrożenie innowacyjnego systemu monitorowania biomechaniki ruchu sportowców.</p>
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #2EC4B6; transform: skewX(-12deg);"></span>Przeprowadzenie testów prototypu systemu we współpracy z przyjaznymi testerami oraz weryfikacja działania w rzeczywistych warunkach treningowych.</p>
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #2EC4B6; transform: skewX(-12deg);"></span>Rozwijanie interfejsu użytkownika oraz testy funkcjonalne i operacyjne u pierwszych partnerów zewnętrznych.</p>
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #2EC4B6; transform: skewX(-12deg);"></span>Działania promocyjne wspierające wdrożenie, obejmujące kampanie marketingowe i współpracę z wybranymi klubami oraz sportowcami.</p>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 20px;">
+<h2 style="margin: 0; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-weight: 800; font-size: clamp(30px, 3vw, 42px); line-height: 1.05;">Grupy docelowe</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #4A4848;">
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #F2F4F3; transform: skewX(-12deg);"></span>Klienci indywidualni – osoby uprawiające sport (ze szczególnym uwzględnieniem rowerzystów).</p>
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #F2F4F3; transform: skewX(-12deg);"></span>Kluby sportowe, w szczególności kluby kolarskie i salony rowerowe.</p>
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #F2F4F3; transform: skewX(-12deg);"></span>Obiekty sportowe: siłownie, kluby fitness, centra rehabilitacji.</p>
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #F2F4F3; transform: skewX(-12deg);"></span>Potencjalnie: środowisko naukowe oraz ośrodki zdrowia.</p>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 20px;">
+<h2 style="margin: 0; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-weight: 800; font-size: clamp(30px, 3vw, 42px); line-height: 1.05;">Cele</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #4A4848;">
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #2EC4B6; transform: skewX(-12deg);"></span>Udostępnienie szerokiemu rynkowi innowacyjnego narzędzia do monitorowania i analizy biomechaniki ruchu w czasie rzeczywistym.</p>
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #2EC4B6; transform: skewX(-12deg);"></span>Obniżenie kosztów profesjonalnej analityki ruchu oraz umożliwienie dostępu do tej technologii również amatorom.</p>
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #2EC4B6; transform: skewX(-12deg);"></span>Zwiększenie szans na prawidłowy trening, profilaktykę urazów oraz efektywną rehabilitację dzięki obiektywnym, powtarzalnym pomiarom.</p>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 20px;">
+<h2 style="margin: 0; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-weight: 800; font-size: clamp(30px, 3vw, 42px); line-height: 1.05;">Efekty i rezultaty</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #4A4848;">
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #F2F4F3; transform: skewX(-12deg);"></span>Komercyjne wdrożenie systemu SABAS – łatwo dostępnego narzędzia do monitorowania i analizy ruchu.</p>
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #F2F4F3; transform: skewX(-12deg);"></span>Rozwój polskiej innowacji na rynku krajowym i zagranicznym (w szczególności w sektorze sportowym i rehabilitacyjnym).</p>
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #F2F4F3; transform: skewX(-12deg);"></span>Stworzenie referencyjnych modeli biomechanicznych na podstawie danych zebranych podczas współpracy z wybitnymi sportowcami.</p>
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #F2F4F3; transform: skewX(-12deg);"></span>Wprowadzenie nowych funkcjonalności i ekspansja na kolejne rynki (fitness, siłownie, ośrodki zdrowia).</p>
+<p class="brc-item" style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; color: #D5DCDA;"><span aria-hidden="true" style="flex: none; width: 16px; height: 6px; margin-top: 9px; background: #F2F4F3; transform: skewX(-12deg);"></span>Wzrost rozpoznawalności firmy BikeRC oraz transfer polskiej technologii na rynki zagraniczne.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section style="max-width: 1320px; margin: 0 auto; padding: 96px clamp(16px, 4vw, 64px); display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: center; justify-content: space-between;">
+<h2 style="margin: 0; flex: 1 1 420px; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-weight: 900; font-size: clamp(34px, 4vw, 56px); line-height: 1;">Chcesz poznać szczegóły?</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 14px;">
+<a class="brc-btn" href="mailto:biuro@bikerc.cloud" style="display: inline-block; background: #2EC4B6; color: #1F1E1E; text-decoration: none; font-weight: 600; padding: 16px 30px; border-radius: 6px;">Napisz do nas</a>
+<a class="brc-btn" href="index.html" style="display: inline-block; color: #F2F4F3; text-decoration: none; font-weight: 600; padding: 15px 29px; border-radius: 6px; border: 1px solid #7C8584;">Wróć na stronę główną</a>
+</div>
+</section>
+
+<footer style="border-top: 1px solid #4A4848;">
+<div style="max-width: 1320px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 64px) 48px; display: flex; flex-wrap: wrap; gap: 16px 48px; align-items: center; justify-content: space-between;">
+<img src="assets/logo-bikerc.svg" alt="BikeRc" style="height: 28px; width: auto;">
+<p style="margin: 0; color: #A9AFAE; font-size: 14px; line-height: 20px;">Każdy ruch pod kontrolą, każda jazda przyjemnością.</p>
+<p style="margin: 0; color: #A9AFAE; font-size: 14px; line-height: 20px;">© 2026 BIKERC Prosta Spółka Akcyjna, Rzeszów</p>
+</div>
+</footer>
+
+</div>
+</body>
+</html>
