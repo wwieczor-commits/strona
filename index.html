@@ -106,12 +106,12 @@ html{scroll-behavior:smooth}
 <figure style="flex: 1.25 1 540px; min-width: 0; margin: 0; position: relative;">
 <div aria-hidden="true" style="position: absolute; left: 22%; right: -3%; top: -5%; bottom: 14%; background: #2EC4B6; clip-path: polygon(12% 0, 100% 0, 88% 100%, 0 100%);"></div>
 <div style="position: relative; aspect-ratio: 16 / 10; clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%); overflow: hidden; background: #1F1E1E;">
-<video src="assets/studio-film.mp4" poster="assets/studio-film-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Fitterka ustawia kamery w studiu BikeRc" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+<img src="assets/geometria.jpg" alt="Kolarka na szosie z naniesionymi liniami wymiarów pozycji i geometrii roweru" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 40%; display: block;">
 <div class="brc-scan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #2EC4B6; box-shadow: 0 0 18px 4px rgba(46,196,182,.55);"></div>
-<p style="position: absolute; left: 11%; bottom: 18px; margin: 0; display: flex; align-items: center; gap: 8px; background: rgba(31,30,30,.85); color: #F2F4F3; font-size: 13px; line-height: 16px; font-weight: 600; padding: 8px 12px; border-radius: 2px;"><span class="brc-blink" aria-hidden="true" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #2EC4B6;"></span>Kalibracja kamer</p>
-<p style="position: absolute; right: 11%; top: 18px; margin: 0; background: rgba(31,30,30,.85); color: #F2F4F3; font-size: 13px; line-height: 16px; font-weight: 600; padding: 8px 12px; border-radius: 2px;">Studio BikeRc</p>
+<p style="position: absolute; left: 11%; bottom: 18px; margin: 0; display: flex; align-items: center; gap: 8px; background: rgba(31,30,30,.85); color: #F2F4F3; font-size: 13px; line-height: 16px; font-weight: 600; padding: 8px 12px; border-radius: 2px;"><span class="brc-blink" aria-hidden="true" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #2EC4B6;"></span>Pozycja i geometria</p>
+<p style="position: absolute; right: 11%; top: 18px; margin: 0; background: rgba(31,30,30,.85); color: #F2F4F3; font-size: 13px; line-height: 16px; font-weight: 600; padding: 8px 12px; border-radius: 2px;">Analiza BikeRc</p>
 </div>
-<figcaption style="position: relative; margin-top: 18px; font-size: 13px; line-height: 16px; color: #A9AFAE;">Przed pomiarem ustawiamy kamery pod Twój rower i Twoją sylwetkę.</figcaption>
+<figcaption style="position: relative; margin-top: 18px; font-size: 13px; line-height: 16px; color: #A9AFAE;">Linie pokazują wymiary, które mierzymy i ustawiamy podczas fittingu.</figcaption>
 </figure>
 </section>
 
@@ -172,10 +172,11 @@ html{scroll-behavior:smooth}
 
 </div>
 <div style="flex: 1.35 1 480px; min-width: 0; position: relative; aspect-ratio: 3 / 2; border-radius: 12px; overflow: hidden; background: #1F1E1E;">
-<img class="brc-fade brc-shot is-on" src="assets/studio-trenazer.jpg" alt="Rowerzysta na trenażerze w studiu, obok kamery na statywach i monitor z analizą" loading="eager" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 40%;display:block;">
+<img class="brc-fade brc-shot is-on" src="assets/studio-film-poster.jpg" alt="Fitterka ustawia kamery w studiu BikeRc" loading="eager" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block;">
 <img class="brc-fade brc-shot" src="assets/analiza-katy.jpg" alt="Rowerzysta z naniesionymi liniami i kątami w barku, kolanie i kostce" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:45% 40%;display:block;">
 <img class="brc-fade brc-shot" src="assets/fitter.jpg" alt="Fitter ustawia rower klienta, na ekranie model rowerzysty" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;display:block;">
 
+<video class="brc-fade brc-stepvid" src="assets/studio-film.mp4" poster="assets/studio-film-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Fitterka ustawia kamery w studiu BikeRc" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; opacity: 1;"></video>
 <p style="position: absolute; left: 16px; bottom: 16px; margin: 0; display: flex; align-items: center; gap: 8px; background: rgba(31,30,30,.85); color: #F2F4F3; font-size: 13px; line-height: 16px; font-weight: 600; padding: 8px 12px; border-radius: 2px;"><span class="brc-blink" aria-hidden="true" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #2EC4B6;"></span><span>Krok <b id="brc-cur" style="font-weight:600">1</b> z 3</span></p>
 </div>
 </div>
@@ -205,7 +206,7 @@ html{scroll-behavior:smooth}
 <p style="margin: 0 0 40px; color: #A9AFAE; font-size: 17px;">Wybierz, żeby zobaczyć szczegóły.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px; min-height: 520px;">
 <button type="button" class="brc-panel is-open" aria-expanded="true">
-<img src="assets/rowerzysta.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% 40%;display:block;">
+<img src="assets/studio-trenazer.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:22% 40%;display:block;">
 <span aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,30,30,0) 35%,rgba(31,30,30,.92) 100%);"></span>
 <span style="position:relative;display:flex;flex-direction:column;gap:12px;padding:28px;text-align:left;">
 <span class="brc-bar" aria-hidden="true"></span>
@@ -283,6 +284,7 @@ html{scroll-behavior:smooth}
     stepBtns.forEach(function(b,j){b.classList.toggle('is-on',j===i);b.setAttribute('aria-pressed',j===i?'true':'false');
       var pr=b.querySelector('.brc-progress');pr.style.animation='none';void pr.offsetWidth;pr.style.animation='';});
     shots.forEach(function(s,j){s.classList.toggle('is-on',j===i);});
+    var sv=document.querySelector('.brc-stepvid');if(sv){sv.style.opacity=i===0?'1':'0';}
     if(cur)cur.textContent=String(i+1);
   }
   function auto(){if(reduce)return;clearInterval(timer);timer=setInterval(function(){show((idx+1)%3);},6000);}
