@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BikeRc – innovative bike fitting</title>
+<meta name="description" content="BikeRc is bike fitting based on camera image analysis. The algorithm measures joint angles and ranges of motion while you ride, with no sensors on your body.">
+<meta name="theme-color" content="#232222">
+<meta property="og:title" content="BikeRc – innovative bike fitting">
+<meta property="og:description" content="Every move under control. Bike fitting with camera image analysis.">
+<meta property="og:image" content="assets/studio-bikerc.jpg">
+<link rel="alternate" hreflang="pl" href="https://www.bikerc.pl/">
+<link rel="alternate" hreflang="en" href="https://www.bikerc.pl/en.html">
+<link rel="icon" type="image/svg+xml" href="assets/logo-bikerc.svg">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="preload" as="image" href="assets/kamera-telefon.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/studio-bikerc.jpg">
+<style>
+body{margin:0;background:#232222}
+.brc-ig{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-width:44px;min-height:44px;border-radius:6px;color:#F2F4F3;text-decoration:none;transition:color .25s ease,transform .25s cubic-bezier(.2,.7,.2,1)}
+.brc-ig:hover,.brc-ig:focus-visible{color:#2EC4B6;transform:translateY(-2px)}
+html{scroll-padding-top:84px}
+@media (max-width: 760px){.brc-top{position:relative!important}html{scroll-padding-top:0}}
+a{color:#2EC4B6}a:hover{color:#6FDCD1}
+a:focus-visible,button:focus-visible{outline:2px solid #6FDCD1;outline-offset:3px}
+@keyframes brc-rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes brc-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.9);opacity:0}}
+@keyframes brc-scan{0%{top:-4%}100%{top:104%}}
+@keyframes brc-blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes brc-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes brc-kb{from{transform:scale(1.02)}to{transform:scale(1.12) translate(-1.5%,-1%)}}
+@keyframes brc-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes brc-ring{0%{box-shadow:0 0 0 0 rgba(46,196,182,.55)}70%{box-shadow:0 0 0 16px rgba(46,196,182,0)}100%{box-shadow:0 0 0 0 rgba(46,196,182,0)}}
+@keyframes brc-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.brc-rise{animation:brc-rise .9s cubic-bezier(.2,.7,.2,1) both}
+.brc-rise2{animation:brc-rise .9s .15s cubic-bezier(.2,.7,.2,1) both}
+.brc-rise3{animation:brc-rise .9s .3s cubic-bezier(.2,.7,.2,1) both}
+.brc-ring{transform-box:fill-box;transform-origin:center;animation:brc-pulse 2.2s ease-out infinite}
+.brc-scan{animation:brc-scan 3.6s linear infinite}
+.brc-blink{animation:brc-blink 1.4s ease-in-out infinite}
+.brc-marquee{animation:brc-marquee 28s linear infinite}
+.brc-kb{animation:brc-kb 18s ease-in-out infinite alternate}
+.brc-float{animation:brc-float 6s ease-in-out infinite}
+.brc-progress{transform-origin:left center;animation:brc-fill 6s linear both}
+.brc-fade{transition:opacity .7s ease}
+.brc-btn{position:relative;overflow:hidden;isolation:isolate;cursor:pointer;transition:transform .25s cubic-bezier(.2,.7,.2,1),color .3s ease}
+.brc-btn::before{content:"";position:absolute;top:0;bottom:0;left:-15%;width:130%;background:#F2F4F3;transform:translateX(-105%) skewX(-12deg);transition:transform .5s cubic-bezier(.2,.7,.2,1);z-index:-1}
+.brc-btn:hover{transform:translateY(-3px)}
+.brc-btn:hover::before,.brc-btn:focus-visible::before{transform:translateX(0) skewX(-12deg)}
+.brc-btn:active{transform:translateY(0) scale(.97)}
+.brc-ghost::before{background:#2EC4B6}
+.brc-ghost:hover,.brc-ghost:focus-visible{color:#1F1E1E!important;border-color:#2EC4B6!important}
+.brc-dark::before{background:#2EC4B6}
+.brc-dark:hover,.brc-dark:focus-visible{color:#1F1E1E!important}
+.brc-pulse{animation:brc-ring 2.4s ease-out infinite}
+.brc-nav{position:relative;padding:6px 0}
+.brc-nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#2EC4B6;transform:scaleX(0) skewX(-12deg);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.brc-nav:hover::after,.brc-nav:focus-visible::after{transform:scaleX(1) skewX(-12deg)}
+.brc-step{transition:background .3s ease,transform .3s cubic-bezier(.2,.7,.2,1)}
+.brc-step:hover{transform:translateX(6px)}
+.brc-panel{transition:flex-grow .5s cubic-bezier(.2,.7,.2,1)}
+.brc-panel img{transition:transform .8s ease}
+.brc-panel:hover img{transform:scale(1.05)}
+.brc-tilt{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.brc-tilt:hover{transform:perspective(900px) rotateY(-6deg) rotateX(2deg) scale(1.02)}
+@media (max-width: 760px){.brc-shade{background:rgba(35,34,34,.84)!important}}
+@media (prefers-reduced-motion: reduce){.brc-rise,.brc-rise2,.brc-rise3,.brc-ring,.brc-scan,.brc-blink,.brc-marquee,.brc-kb,.brc-float,.brc-progress,.brc-pulse{animation:none}.brc-btn,.brc-btn::before,.brc-panel,.brc-panel img,.brc-tilt,.brc-step,.brc-fade{transition:none}}
+
+html{scroll-behavior:smooth}
+.brc-panel{position:relative;flex:1 1 220px;min-width:220px;min-height:520px;border:0;padding:0;margin:0;cursor:pointer;overflow:hidden;border-radius:12px;background:#1F1E1E;display:flex;align-items:flex-end;font:inherit;color:inherit}
+.brc-panel.is-open{flex-grow:3.2;box-shadow:inset 0 0 0 2px #2EC4B6}
+.brc-bar{display:block;width:48px;height:8px;background:#F2F4F3;transform:skewX(-12deg);transition:background .3s}
+.brc-panel.is-open .brc-bar{background:#2EC4B6}
+.brc-text{display:none;max-width:30em;font-size:16px;line-height:25px;color:#D5DCDA}
+.brc-panel.is-open .brc-text{display:block;animation:brc-rise .5s both}
+.brc-step{display:flex;gap:20px;align-items:flex-start;width:100%;padding:20px 22px;border:0;border-radius:6px;cursor:pointer;font:inherit;color:inherit;text-align:left;background:transparent}
+.brc-step.is-on{background:#353434}
+.brc-num{font-family:Archivo,'Helvetica Neue',Arial,sans-serif;font-style:italic;font-weight:900;font-size:52px;line-height:48px;color:#7C8584;min-width:1em;transition:color .3s}
+.brc-step.is-on .brc-num{color:#2EC4B6}
+.brc-track{display:block;height:3px;background:#4A4848;margin-top:8px;overflow:hidden}
+.brc-progress{display:none;height:3px;background:#2EC4B6}
+.brc-step.is-on .brc-progress{display:block}
+.brc-shot{opacity:0}.brc-shot.is-on{opacity:1}
+.brc-btn{will-change:transform}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div style="background: #232222; color: #F2F4F3; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 24px; overflow-x: clip;">
+
+<div class="brc-top" style="position: sticky; top: 0; z-index: 50; background: rgba(35,34,34,.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid #353434;">
+<header style="max-width: 1320px; margin: 0 auto; padding: 14px clamp(16px, 4vw, 64px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+<a href="#top" style="display: block; line-height: 0;"><img src="assets/logo-bikerc.svg" alt="BikeRc" style="height: 36px; width: auto; display: block;"></a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 32px; font-size: 15px; font-weight: 500;">
+<a class="brc-nav" href="#jak" style="color: #F2F4F3; text-decoration: none;">How it works</a>
+<a class="brc-nav" href="#zastosowanie" style="color: #F2F4F3; text-decoration: none;">Who it's for</a>
+<a class="brc-nav" href="#studio" style="color: #F2F4F3; text-decoration: none;">Studio</a>
+<a class="brc-nav" href="projekt.html" hreflang="pl" style="color: #F2F4F3; text-decoration: none;">About the project</a>
+<a class="brc-nav" href="./" lang="pl" hreflang="pl" aria-label="Wersja polska" style="color: #2EC4B6; text-decoration: none; font-weight: 700;">PL</a>
+<span style="display: inline-flex; align-items: center; gap: 2px;">
+<a class="brc-ig" href="https://www.instagram.com/bikercpsa/" target="_blank" rel="noopener" aria-label="BikeRc on Instagram"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="igg22" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FEDA75"></stop><stop offset=".3" stop-color="#FA7E1E"></stop><stop offset=".55" stop-color="#D62976"></stop><stop offset=".8" stop-color="#962FBF"></stop><stop offset="1" stop-color="#4F5BD5"></stop></linearGradient></defs><rect x="3" y="3" width="18" height="18" rx="5" stroke="url(#igg22)"></rect><circle cx="12" cy="12" r="4.2" stroke="url(#igg22)"></circle><circle cx="17.4" cy="6.6" r="1.1" fill="url(#igg22)"></circle></svg></a>
+<a class="brc-ig" href="https://www.tiktok.com/@bikercpsa" target="_blank" rel="noopener" aria-label="BikeRc on TikTok"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(-0.9 -0.6)" stroke="#25F4EE"><path d="M14 3v11.6a3.6 3.6 0 1 1-3.6-3.6"></path><path d="M14 3c.4 2.6 2.4 4.5 5 4.6"></path></g><g transform="translate(0.9 0.6)" stroke="#FE2C55"><path d="M14 3v11.6a3.6 3.6 0 1 1-3.6-3.6"></path><path d="M14 3c.4 2.6 2.4 4.5 5 4.6"></path></g><g transform="translate(0 0)" stroke="#FFFFFF"><path d="M14 3v11.6a3.6 3.6 0 1 1-3.6-3.6"></path><path d="M14 3c.4 2.6 2.4 4.5 5 4.6"></path></g></svg></a>
+<a class="brc-ig" href="https://www.facebook.com/profile.php?id=61575566671227" target="_blank" rel="noopener" aria-label="BikeRc on Facebook"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" fill="#1877F2"></rect><path d="M15.6 8h-1.7c-1.3 0-2 .8-2 2.1V22" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"></path><path d="M9.4 13h5.8" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"></path></svg></a>
+</span>
+<a class="brc-btn" href="#kontakt" style="display: inline-block; background: #2EC4B6; color: #1F1E1E; text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 6px;">Contact</a>
+</nav>
+</header>
+</div>
+
+<section id="top" style="max-width: 1320px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 64px) 72px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px;">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 28px;">
+<p class="brc-rise" style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 14px; line-height: 20px; color: #A9AFAE;"><span class="brc-blink" aria-hidden="true" style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #2EC4B6;"></span>Bike fitting with image analysis</p>
+<h1 class="brc-rise2" style="margin: 0; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-weight: 900; font-size: clamp(52px, 7.4vw, 112px); line-height: 0.92; letter-spacing: -0.02em;">Every move under control.</h1>
+<p class="brc-rise3" style="margin: 0; max-width: 32em; font-size: 18px; line-height: 28px; color: #A9AFAE;">The camera sees your hips, knees and feet as you ride. The BikeRc algorithm measures joint angles and ranges of motion, and we set up your bike so you ride faster and without pain.</p>
+<div class="brc-rise3" style="display: flex; flex-wrap: wrap; gap: 14px;">
+<a class="brc-btn brc-pulse" href="#kontakt" style="display: inline-block; background: #2EC4B6; color: #1F1E1E; text-decoration: none; font-weight: 600; padding: 16px 30px; border-radius: 6px;">Book a fitting</a>
+<a class="brc-btn brc-ghost" href="#jak" style="display: inline-block; color: #F2F4F3; text-decoration: none; font-weight: 600; padding: 15px 29px; border-radius: 6px; border: 1px solid #7C8584;">How it works</a>
+</div>
+</div>
+
+<figure style="flex: 1.25 1 540px; min-width: 0; margin: 0; position: relative;">
+<div aria-hidden="true" style="position: absolute; left: 22%; right: -3%; top: -5%; bottom: 14%; background: #2EC4B6; clip-path: polygon(12% 0, 100% 0, 88% 100%, 0 100%);"></div>
+<div style="position: relative; aspect-ratio: 16 / 10; clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%); overflow: hidden; background: #1F1E1E;">
+<img src="assets/kamera-telefon.jpg" alt="A phone on a tripod records a cyclist on a trainer, with the joints and the hip, knee and ankle angles marked on the body" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%; display: block;">
+<div class="brc-scan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #2EC4B6; box-shadow: 0 0 18px 4px rgba(46,196,182,.55);"></div>
+<p style="position: absolute; right: 11%; top: 18px; margin: 0; display: flex; align-items: center; gap: 8px; background: rgba(31,30,30,.85); color: #F2F4F3; font-size: 13px; line-height: 16px; font-weight: 600; padding: 8px 12px; border-radius: 2px;"><span class="brc-blink" aria-hidden="true" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #2EC4B6;"></span>Live analysis</p>
+</div>
+<figcaption style="position: relative; margin-top: 18px; font-size: 13px; line-height: 16px; color: #A9AFAE;">All it takes is a camera, even the one in your phone. The algorithm locates the joints and measures the angles.</figcaption>
+</figure>
+</section>
+
+<div aria-hidden="true" style="background: #2EC4B6; color: #1F1E1E; transform: rotate(-2deg); margin: 24px -40px 0; overflow: hidden; white-space: nowrap;">
+<div class="brc-marquee" style="display: inline-flex; align-items: center; gap: 40px; padding: 18px 0; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-weight: 900; font-size: 30px; line-height: 34px;">
+<span>No sensors</span><span style="display: inline-block; width: 14px; height: 30px; background: #1F1E1E; transform: skewX(-12deg);"></span>
+<span>Two cameras</span><span style="display: inline-block; width: 14px; height: 30px; background: #1F1E1E; transform: skewX(-12deg);"></span>
+<span>Results on screen right away</span><span style="display: inline-block; width: 14px; height: 30px; background: #1F1E1E; transform: skewX(-12deg);"></span>
+<span>Road, gravel, MTB, triathlon</span><span style="display: inline-block; width: 14px; height: 30px; background: #1F1E1E; transform: skewX(-12deg);"></span>
+<span>No sensors</span><span style="display: inline-block; width: 14px; height: 30px; background: #1F1E1E; transform: skewX(-12deg);"></span>
+<span>Two cameras</span><span style="display: inline-block; width: 14px; height: 30px; background: #1F1E1E; transform: skewX(-12deg);"></span>
+<span>Results on screen right away</span><span style="display: inline-block; width: 14px; height: 30px; background: #1F1E1E; transform: skewX(-12deg);"></span>
+<span>Road, gravel, MTB, triathlon</span><span style="display: inline-block; width: 14px; height: 30px; background: #1F1E1E; transform: skewX(-12deg);"></span>
+</div>
+</div>
+
+<section id="studio" style="position: relative; margin-top: 96px; min-height: 620px; display: flex; align-items: center; overflow: hidden;">
+<img class="brc-kb" src="assets/studio-bikerc.jpg" alt="BikeRc studio: the logo on a dark wall, tools and a bike on the fitting stand" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; display: block;">
+<div class="brc-shade" aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(35,34,34,.97) 0%, rgba(35,34,34,.9) 36%, rgba(35,34,34,.2) 70%, rgba(35,34,34,.05) 100%);"></div>
+<div style="position: relative; width: 100%; max-width: 1320px; margin: 0 auto; padding: 112px clamp(16px, 4vw, 64px); box-sizing: border-box;">
+<div style="max-width: 540px; display: flex; flex-direction: column; gap: 20px;">
+<h2 style="margin: 0; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-weight: 900; font-size: clamp(40px, 4.8vw, 68px); line-height: 0.98;">Innovation that rides with you.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 29px; color: #D5DCDA;">We don't stick on markers or plug in cables. BikeRc's own algorithm reads your position from the camera image, so the measurement is quick and you ride the way you always do.</p>
+<a class="brc-btn brc-ghost" href="#kontakt" style="align-self: flex-start; display: inline-block; color: #F2F4F3; text-decoration: none; font-weight: 600; padding: 14px 26px; border-radius: 6px; border: 1px solid #7C8584;">About the project we are running</a>
+</div>
+</div>
+</section>
+
+<section id="jak" style="background: #2B2A2A;">
+<div style="max-width: 1320px; margin: 0 auto; padding: 112px clamp(16px, 4vw, 64px);">
+<h2 style="margin: 0 0 48px; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-weight: 800; font-size: clamp(36px, 4vw, 56px); line-height: 1.02;">Fitting in three steps</h2>
+<div style="display: flex; flex-wrap: wrap-reverse; gap: 40px 64px; align-items: stretch;">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 12px; justify-content: center;">
+<button type="button" class="brc-step is-on" data-step="0" aria-pressed="true">
+<span class="brc-num">1</span>
+<span style="display:flex;flex-direction:column;gap:6px;text-align:left;flex:1;min-width:0;">
+<span style="font-size:20px;line-height:28px;font-weight:600;color:#F2F4F3;">Recording</span>
+<span style="font-size:16px;line-height:24px;color:#A9AFAE;">You ride for a few minutes on a trainer, on your own bike. Cameras record you from the side and from the front.</span>
+<span class="brc-track" aria-hidden="true"><span class="brc-progress"></span></span>
+</span>
+</button>
+<button type="button" class="brc-step" data-step="1" aria-pressed="false">
+<span class="brc-num">2</span>
+<span style="display:flex;flex-direction:column;gap:6px;text-align:left;flex:1;min-width:0;">
+<span style="font-size:20px;line-height:28px;font-weight:600;color:#F2F4F3;">Analysis</span>
+<span style="font-size:16px;line-height:24px;color:#A9AFAE;">The algorithm locates your joints and measures angles and ranges of motion on every turn of the cranks.</span>
+<span class="brc-track" aria-hidden="true"><span class="brc-progress"></span></span>
+</span>
+</button>
+<button type="button" class="brc-step" data-step="2" aria-pressed="false">
+<span class="brc-num">3</span>
+<span style="display:flex;flex-direction:column;gap:6px;text-align:left;flex:1;min-width:0;">
+<span style="font-size:20px;line-height:28px;font-weight:600;color:#F2F4F3;">Adjustment</span>
+<span style="font-size:16px;line-height:24px;color:#A9AFAE;">We adjust the saddle, handlebars and cleats, then measure again to confirm the result.</span>
+<span class="brc-track" aria-hidden="true"><span class="brc-progress"></span></span>
+</span>
+</button>
+
+</div>
+<div style="flex: 1.35 1 480px; min-width: 0; position: relative; aspect-ratio: 3 / 2; border-radius: 12px; overflow: hidden; background: #1F1E1E;">
+<img class="brc-fade brc-shot is-on" src="assets/studio-film-poster.jpg" alt="A fitter sets up the cameras in the BikeRc studio" loading="eager" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block;">
+<img class="brc-fade brc-shot" src="assets/studio-pomiar.jpg" alt="A measurement in the BikeRc studio: a cyclist on a trainer with joint points and angles overlaid, the fitter at the monitor" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 45%;display:block;">
+<img class="brc-fade brc-shot" src="assets/fitting-film-poster.jpg" alt="A fitter adjusts a triathlete's position on the trainer" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block;">
+
+<video class="brc-fade brc-stepvid" data-src="assets/studio-film.mp4" poster="assets/studio-film-poster.jpg" muted loop playsinline preload="none" aria-label="A fitter sets up the cameras in the BikeRc studio" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; opacity: 1;"></video>
+<video class="brc-fade brc-stepvid3" data-src="assets/fitting-film.mp4" poster="assets/fitting-film-poster.jpg" muted loop playsinline preload="none" aria-label="A fitter adjusts a triathlete's position on the trainer" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; display: block; opacity: 0;"></video>
+<p style="position: absolute; left: 16px; bottom: 16px; margin: 0; display: flex; align-items: center; gap: 8px; background: rgba(31,30,30,.85); color: #F2F4F3; font-size: 13px; line-height: 16px; font-weight: 600; padding: 8px 12px; border-radius: 2px;"><span class="brc-blink" aria-hidden="true" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #2EC4B6;"></span><span>Step <b id="brc-cur" style="font-weight:600">1</b> of 3</span></p>
+</div>
+</div>
+</div>
+</section>
+
+<section style="max-width: 1320px; margin: 0 auto; padding: 120px clamp(16px, 4vw, 64px); display: flex; flex-wrap: wrap-reverse; gap: 56px 96px; align-items: center;">
+<div style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 22px;">
+<h2 style="margin: 0; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-weight: 800; font-size: clamp(36px, 4vw, 56px); line-height: 1.02;">Two cameras, the full picture.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 29px; color: #A9AFAE;">The side view shows your knee and hip angles and how far your back leans forward. The front view shows whether your knees track straight and whether one side is doing more work than the other.</p>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #4A4848; margin-top: 8px;">
+<p style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; align-items: baseline;"><span style="color: #2EC4B6; font-weight: 700; min-width: 7.5em;">Joint angles</span><span style="color: #D5DCDA;">knee, hip and shoulder on every turn of the cranks</span></p>
+<p style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; align-items: baseline;"><span style="color: #2EC4B6; font-weight: 700; min-width: 7.5em;">Symmetry</span><span style="color: #D5DCDA;">differences between the left and right side</span></p>
+<p style="margin: 0; padding: 16px 0; border-bottom: 1px solid #4A4848; display: flex; gap: 16px; align-items: baseline;"><span style="color: #2EC4B6; font-weight: 700; min-width: 7.5em;">Foot position</span><span style="color: #D5DCDA;">cleat position and stance width</span></p>
+</div>
+</div>
+<figure class="brc-float" style="flex: 0 1 400px; min-width: 0; margin: 0;">
+<div class="brc-tilt" style="position: relative; aspect-ratio: 2 / 3; border-radius: 12px; overflow: hidden; background: #1F1E1E;">
+<video data-src="assets/kolarz-szosa.mp4" poster="assets/kolarz-szosa-poster.jpg" muted loop playsinline preload="none" aria-label="A cyclist rides on the road while the camera circles from the front to the side" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+<div class="brc-scan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #2EC4B6; box-shadow: 0 0 18px 4px rgba(46,196,182,.5);"></div>
+</div>
+</figure>
+</section>
+
+<section id="zastosowanie" style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 64px) 120px;">
+<h2 style="margin: 0 0 12px; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-weight: 800; font-size: clamp(36px, 4vw, 56px); line-height: 1.02;">Who BikeRc is for</h2>
+<p style="margin: 0 0 40px; color: #A9AFAE; font-size: 17px;">Pick one to see the details.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; min-height: 520px;">
+<button type="button" class="brc-panel is-open" aria-expanded="true">
+<img src="assets/geometria.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:45% 40%;display:block;">
+<span aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,30,30,0) 35%,rgba(31,30,30,.92) 100%);"></span>
+<span style="position:relative;display:flex;flex-direction:column;gap:12px;padding:28px;text-align:left;">
+<span class="brc-bar" aria-hidden="true"></span>
+<span style="font-family:Archivo,'Helvetica Neue',Arial,sans-serif;font-style:italic;font-weight:800;font-size:30px;line-height:34px;color:#F2F4F3;">For cyclists</span>
+<span class="brc-text">Road, gravel, MTB, triathlon. A position matched to your body and riding style: less knee and back pain, more power at the pedals.</span>
+</span>
+</button>
+<button type="button" class="brc-panel" aria-expanded="false">
+<img src="assets/stanowisko.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 40%;display:block;">
+<span aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,30,30,0) 35%,rgba(31,30,30,.92) 100%);"></span>
+<span style="position:relative;display:flex;flex-direction:column;gap:12px;padding:28px;text-align:left;">
+<span class="brc-bar" aria-hidden="true"></span>
+<span style="font-family:Archivo,'Helvetica Neue',Arial,sans-serif;font-style:italic;font-weight:800;font-size:30px;line-height:34px;color:#F2F4F3;">For bike shops</span>
+<span class="brc-text">Fitting at the point of sale, without an expensive measurement studio. Your customer picks up a bike set up for them and comes back to you for the next one.</span>
+</span>
+</button>
+<button type="button" class="brc-panel" aria-expanded="false">
+<img src="assets/rama.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block;">
+<span aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,30,30,0) 35%,rgba(31,30,30,.92) 100%);"></span>
+<span style="position:relative;display:flex;flex-direction:column;gap:12px;padding:28px;text-align:left;">
+<span class="brc-bar" aria-hidden="true"></span>
+<span style="font-family:Archivo,'Helvetica Neue',Arial,sans-serif;font-style:italic;font-weight:800;font-size:30px;line-height:34px;color:#F2F4F3;">For bike manufacturers</span>
+<span class="brc-text">Position data from real cyclists that helps you design frame geometry and get sizing right.</span>
+</span>
+</button>
+
+</div>
+</section>
+
+<section id="kontakt" style="background: #2B2A2A; clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);">
+<div style="max-width: 1320px; margin: 0 auto; padding: 160px clamp(16px, 4vw, 64px) 96px; display: flex; flex-wrap: wrap; gap: 48px 80px; align-items: center;">
+<div style="flex: 1.2 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 22px;">
+<h2 style="margin: 0; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-weight: 900; font-size: clamp(44px, 5.6vw, 84px); line-height: 0.96;">Want to know more?</h2>
+<p style="margin: 0; max-width: 30em; font-size: 18px; line-height: 28px; color: #A9AFAE;">Write to us. We'll answer your questions, show you the system in action and book a date for your measurement.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center;">
+<a class="brc-btn brc-pulse" href="mailto:kontakt@bikerc.pl" style="display: inline-block; background: #2EC4B6; color: #1F1E1E; text-decoration: none; font-weight: 600; padding: 16px 30px; border-radius: 6px;">Write to us</a>
+<a class="brc-nav" href="mailto:kontakt@bikerc.pl" style="font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 800; font-size: 24px; color: #2EC4B6; text-decoration: none;">kontakt@bikerc.pl</a>
+<a class="brc-ig" href="https://www.instagram.com/bikercpsa/" target="_blank" rel="noopener" style="font-weight: 600; color: #D5DCDA;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="igg24" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FEDA75"></stop><stop offset=".3" stop-color="#FA7E1E"></stop><stop offset=".55" stop-color="#D62976"></stop><stop offset=".8" stop-color="#962FBF"></stop><stop offset="1" stop-color="#4F5BD5"></stop></linearGradient></defs><rect x="3" y="3" width="18" height="18" rx="5" stroke="url(#igg24)"></rect><circle cx="12" cy="12" r="4.2" stroke="url(#igg24)"></circle><circle cx="17.4" cy="6.6" r="1.1" fill="url(#igg24)"></circle></svg>Instagram</a>
+<a class="brc-ig" href="https://www.tiktok.com/@bikercpsa" target="_blank" rel="noopener" style="font-weight: 600; color: #D5DCDA;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(-0.9 -0.6)" stroke="#25F4EE"><path d="M14 3v11.6a3.6 3.6 0 1 1-3.6-3.6"></path><path d="M14 3c.4 2.6 2.4 4.5 5 4.6"></path></g><g transform="translate(0.9 0.6)" stroke="#FE2C55"><path d="M14 3v11.6a3.6 3.6 0 1 1-3.6-3.6"></path><path d="M14 3c.4 2.6 2.4 4.5 5 4.6"></path></g><g transform="translate(0 0)" stroke="#FFFFFF"><path d="M14 3v11.6a3.6 3.6 0 1 1-3.6-3.6"></path><path d="M14 3c.4 2.6 2.4 4.5 5 4.6"></path></g></svg>TikTok</a>
+<a class="brc-ig" href="https://www.facebook.com/profile.php?id=61575566671227" target="_blank" rel="noopener" style="font-weight: 600; color: #D5DCDA;"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" fill="#1877F2"></rect><path d="M15.6 8h-1.7c-1.3 0-2 .8-2 2.1V22" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"></path><path d="M9.4 13h5.8" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"></path></svg>Facebook</a>
+</div>
+</div>
+<div role="img" aria-label="Animation: a cyclist's leg pedalling, with a readout of the knee angle" style="flex: 0 1 300px; min-width: 0; position: relative; aspect-ratio: 560 / 840;">
+<img src="assets/noga-tlo.svg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block;">
+<svg viewBox="340 96 560 840" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible;">
+<path id="brc-crank" d="" stroke="#2EC4B6" stroke-width="7" stroke-linecap="round" fill="none"></path>
+<path id="brc-leg" d="" stroke="#2EC4B6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+<path id="brc-foot" d="" stroke="#2EC4B6" stroke-width="5" stroke-linecap="round" fill="none"></path>
+<path id="brc-arc" d="" stroke="#F2F4F3" stroke-width="2.5" fill="none"></path>
+<circle cx="440" cy="150" r="11" fill="#2B2A2A" stroke="#2EC4B6" stroke-width="4"></circle>
+<circle id="brc-knee" cx="0" cy="0" r="11" fill="#2B2A2A" stroke="#2EC4B6" stroke-width="4"></circle>
+<circle id="brc-pedal" cx="0" cy="0" r="9" fill="#2B2A2A" stroke="#2EC4B6" stroke-width="4"></circle>
+<circle cx="600" cy="720" r="7" fill="#2B2A2A" stroke="#2EC4B6" stroke-width="4"></circle>
+<text id="brc-angle" x="0" y="0" text-anchor="end" font-family="Archivo, Arial, sans-serif" font-weight="800" font-style="italic" font-size="34" fill="#F2F4F3"></text>
+</svg>
+</div>
+</div>
+<div style="max-width: 1320px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 64px) 48px; border-top: 1px solid #4A4848; display: flex; flex-wrap: wrap; gap: 16px 48px; align-items: center; justify-content: space-between;">
+<img src="assets/logo-bikerc.svg" alt="BikeRc" style="height: 28px; width: auto;">
+<p style="margin: 0; color: #A9AFAE; font-size: 14px; line-height: 20px;">Every move under control, every ride a pleasure.</p>
+<div style="display: flex; gap: 20px; align-items: center;">
+<a class="brc-ig" href="https://www.instagram.com/bikercpsa/" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="igg20" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FEDA75"></stop><stop offset=".3" stop-color="#FA7E1E"></stop><stop offset=".55" stop-color="#D62976"></stop><stop offset=".8" stop-color="#962FBF"></stop><stop offset="1" stop-color="#4F5BD5"></stop></linearGradient></defs><rect x="3" y="3" width="18" height="18" rx="5" stroke="url(#igg20)"></rect><circle cx="12" cy="12" r="4.2" stroke="url(#igg20)"></circle><circle cx="17.4" cy="6.6" r="1.1" fill="url(#igg20)"></circle></svg>Instagram</a>
+<a class="brc-ig" href="https://www.tiktok.com/@bikercpsa" target="_blank" rel="noopener" aria-label="BikeRc on TikTok" style="font-size: 14px; font-weight: 600;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(-0.9 -0.6)" stroke="#25F4EE"><path d="M14 3v11.6a3.6 3.6 0 1 1-3.6-3.6"></path><path d="M14 3c.4 2.6 2.4 4.5 5 4.6"></path></g><g transform="translate(0.9 0.6)" stroke="#FE2C55"><path d="M14 3v11.6a3.6 3.6 0 1 1-3.6-3.6"></path><path d="M14 3c.4 2.6 2.4 4.5 5 4.6"></path></g><g transform="translate(0 0)" stroke="#FFFFFF"><path d="M14 3v11.6a3.6 3.6 0 1 1-3.6-3.6"></path><path d="M14 3c.4 2.6 2.4 4.5 5 4.6"></path></g></svg>TikTok</a>
+<a class="brc-ig" href="https://www.facebook.com/profile.php?id=61575566671227" target="_blank" rel="noopener" aria-label="BikeRc on Facebook" style="font-size: 14px; font-weight: 600;"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" fill="#1877F2"></rect><path d="M15.6 8h-1.7c-1.3 0-2 .8-2 2.1V22" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"></path><path d="M9.4 13h5.8" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"></path></svg>Facebook</a>
+</div>
+<p style="margin: 0; color: #A9AFAE; font-size: 14px; line-height: 20px;">© 2026 BIKERC Prosta Spółka Akcyjna, Rzeszów · <a href="projekt.html" hreflang="pl" style="color: #2EC4B6;">SABAS project (FENG, in Polish)</a> · <a href="polityka-prywatnosci.html" hreflang="pl" style="color: #2EC4B6;">Privacy policy (in Polish)</a></p>
+</div>
+</section>
+
+</div>
+<script>
+(function(){
+  try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}
+  if(!location.hash){window.scrollTo(0,0);window.addEventListener('load',function(){window.scrollTo(0,0);});}
+  var reduce=false;try{reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
+  // accordion
+  var panels=document.querySelectorAll('.brc-panel');
+  panels.forEach(function(p){p.addEventListener('click',function(){
+    panels.forEach(function(q){q.classList.toggle('is-open',q===p);q.setAttribute('aria-expanded',q===p?'true':'false');});
+  });});
+  // steps
+  var stepBtns=[].slice.call(document.querySelectorAll('.brc-step')),shots=[].slice.call(document.querySelectorAll('.brc-shot')),cur=document.getElementById('brc-cur'),idx=0,timer=null;
+  function show(i){
+    idx=i;
+    stepBtns.forEach(function(b,j){b.classList.toggle('is-on',j===i);b.setAttribute('aria-pressed',j===i?'true':'false');
+      var pr=b.querySelector('.brc-progress');pr.style.animation='none';void pr.offsetWidth;pr.style.animation='';});
+    shots.forEach(function(s,j){s.classList.toggle('is-on',j===i);});
+    var sv=document.querySelector('.brc-stepvid');if(sv){sv.style.opacity=i===0?'1':'0';}
+    var sv3=document.querySelector('.brc-stepvid3');if(sv3){sv3.style.opacity=i===2?'1':'0';}
+    if(cur)cur.textContent=String(i+1);
+  }
+  function auto(){if(reduce)return;clearInterval(timer);timer=setInterval(function(){show((idx+1)%3);},6000);}
+  stepBtns.forEach(function(b,j){b.addEventListener('click',function(){show(j);auto();});});
+  auto();
+  // magnetic buttons
+  if(!reduce && window.matchMedia('(hover: hover)').matches){
+    document.querySelectorAll('.brc-btn').forEach(function(b){
+      b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();var x=(e.clientX-r.left-r.width/2)*.18,y=(e.clientY-r.top-r.height/2)*.3;b.style.transform='translate('+x.toFixed(1)+'px,'+(y-3).toFixed(1)+'px)';});
+      b.addEventListener('mouseleave',function(){b.style.transform='';});
+    });
+  }
+  // video
+  document.querySelectorAll('video[data-src]').forEach(function(v){v.muted=true;});
+  var vids=[].slice.call(document.querySelectorAll('video[data-src]'));
+  function load(v){if(!v.src){v.src=v.getAttribute('data-src');}}
+  function play(v){load(v);if(reduce)return;var p=v.play();if(p&&p.catch)p.catch(function(){});}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){if(getComputedStyle(v).opacity!=='0'||v.classList.contains('brc-stepvid3')){play(v);}}else if(v.src){v.pause();}});},{rootMargin:'300px 0px'});
+    window.addEventListener('load',function(){vids.forEach(function(v){io.observe(v);});});
+  } else { window.addEventListener('load',function(){vids.forEach(play);}); }
+  // pedalling leg
+  var Hh=[440,150],C=[600,720],R=150,L1=380,L2=392;
+  var el=function(id){return document.getElementById(id);};
+  var leg=el('brc-leg'),crank=el('brc-crank'),foot=el('brc-foot'),arc=el('brc-arc'),knee=el('brc-knee'),pedal=el('brc-pedal'),label=el('brc-angle');
+  function f(v){return v.toFixed(1);}
+  function draw(t){
+    var P=[C[0]+R*Math.cos(t),C[1]+R*Math.sin(t)],dx=P[0]-Hh[0],dy=P[1]-Hh[1],d=Math.hypot(dx,dy);
+    var a=(L1*L1-L2*L2+d*d)/(2*d),h=Math.sqrt(Math.max(L1*L1-a*a,0)),mx=Hh[0]+a*dx/d,my=Hh[1]+a*dy/d;
+    var k1=[mx+h*dy/d,my-h*dx/d],k2=[mx-h*dy/d,my+h*dx/d],K=k1[0]>k2[0]?k1:k2;
+    var a1=Math.atan2(Hh[1]-K[1],Hh[0]-K[0]),a2=Math.atan2(P[1]-K[1],P[0]-K[0]),df=a2-a1;
+    while(df>Math.PI)df-=2*Math.PI;while(df<-Math.PI)df+=2*Math.PI;
+    leg.setAttribute('d','M440 150 L'+f(K[0])+' '+f(K[1])+' L'+f(P[0])+' '+f(P[1]));
+    crank.setAttribute('d','M600 720 L'+f(P[0])+' '+f(P[1]));
+    foot.setAttribute('d','M'+f(P[0])+' '+f(P[1])+' L'+f(P[0]+58)+' '+f(P[1]+10));
+    arc.setAttribute('d','M'+f(K[0]+58*Math.cos(a1))+' '+f(K[1]+58*Math.sin(a1))+' A58 58 0 0 '+(df>0?1:0)+' '+f(K[0]+58*Math.cos(a2))+' '+f(K[1]+58*Math.sin(a2)));
+    knee.setAttribute('cx',f(K[0]));knee.setAttribute('cy',f(K[1]));pedal.setAttribute('cx',f(P[0]));pedal.setAttribute('cy',f(P[1]));
+    label.setAttribute('x',f(K[0]-74));label.setAttribute('y',f(K[1]+12));label.textContent=Math.round(Math.abs(df)*180/Math.PI)+'°';
+  }
+  var t0=1.297;draw(t0);
+  if(!reduce){var start=null;(function loop(now){if(start===null)start=now;draw(t0+((now-start)/2400)*Math.PI*2);requestAnimationFrame(loop);})(performance.now());}
+})();
+</script>
+</body>
+</html>
